@@ -4,7 +4,12 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-
+    padding-top: 40px;
+    
+}
+.signup-title
+{
+    background-image: '../images/conf-room.jpg';
 }
 .canc-sub
 {

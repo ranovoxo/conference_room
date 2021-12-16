@@ -5,6 +5,7 @@ import About from './pages/about_us/about';
 import Home from './pages/home';
 import SignUp from './pages/signup/signup';
 import Footer from './components/Footer/Footer'
+import Login from './pages/login/login';
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <Route exact path='/' element= {<Home/>} />
         <Route path='/about' element = { <About/>} />
         <Route path='/sign-up' element = { <SignUp/>} />
+        <Route path='/login' element = { <Login/>} />
       </Routes>
     </Router>
    </main>
