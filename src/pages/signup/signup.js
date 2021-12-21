@@ -13,42 +13,28 @@ const SignUp = ({ handleClose }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   
- 
-
   const handleSubmit = event => {
     event.preventDefault();
-    Organize(firstName, lastName, email, password);
+    Organize(userName, email, password);
   };
 
 return (
+  <div className= "sign-up-form">
         <form className='signup-box' onClick={handleSubmit}>
-           <TextField 
+           <TextField className="input-field"
            label="User Name" 
            variant="filled" 
            required value={userName} 
            onChange={event => setUserName(event.target.value)} />
-
-          <TextField 
-          label="First Name" 
-          variant="filled" 
-          required value={firstName} 
-          onChange={event => setFirstName(event.target.value)} />
-
-          <TextField 
-          label="Last Name" 
-          variant="filled" 
-          required value={lastName}
-          onChange={event => setLastName(event.target.value)}/>
-
-          <TextField 
+          
+          <TextField className="input-field"
           label="Email" 
           variant="filled" 
           type="email" 
           required value={email} 
-          onChange={event => 
-          setEmail(event.target.value)}/>
+          onChange={event => setEmail(event.target.value)}/>
 
-          <TextField 
+          <TextField className="input-field"
           label="Password" 
           variant="filled" 
           type="password" 
@@ -66,6 +52,7 @@ return (
             </Button>
           </div>
       </form>
+      </div>
   );
 };
 

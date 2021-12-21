@@ -1,45 +1,56 @@
-import React, {useState} from 'react';
-import Form from 'react-bootstrap/Form';
-import Button from 'react-bootstrap/Button';
-import './login.css';
+import React, { Component } from "react";
+import "./login.css";
 
-export default function Login() {
-    const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
+class Login extends Component{
+  handleSubmit = e => {
+    e.preventDefault();
+    console.log(e.target.email.value);
 
-    function validate()
-    {
-        return email.length > 0 && password.length > 0;
+    if (!e.target.email.value) {
+      alert("Email is required");
+    } else if (!e.target.email.value) {
+      alert("Valid email is required");
+    } else if (!e.target.password.value) {
+      alert("Password is required");
+    } else if (
+      e.target.email.value === "me@example.com" &&
+      e.target.password.value === "123456"
+    ) {
+      alert("Successfully logged in");
+      e.target.email.value = "";
+      e.target.password.value = "";
+    } else {
+      alert("Wrong email or password combination");
     }
-    function handleSubmit(event)
-    {
-        event.preventDefault();
-    }
+  };
 
+  handleClick = e => {
+    e.preventDefault();
+
+    alert("Goes to registration page");
+  };
+  render() {
     return (
-    <div className="Login">
-      <Form onSubmit={handleSubmit}>
-        <Form.Group size="lg" controlId="email">
-          <Form.Label>Email</Form.Label>
-          <Form.Control
-            autoFocus
-            type="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-          />
-        </Form.Group>
-        <Form.Group size="lg" controlId="password">
-          <Form.Label>Password</Form.Label>
-          <Form.Control
-            type="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-          />
-        </Form.Group>
-        <Button block size="lg" type="submit" disabled={!validate()}>
-          Login
-        </Button>
-      </Form>
-    </div>
-  );
+      <div className="Login-Box" >
+      <div className="Login">
+        <form className="form" onSubmit={this.handleSubmit}>
+          <div className="input-group">
+            <label htmlFor="email">Email</label>
+            <input type="email" name="email" placeholder="username@email.com." />
+          </div>
+          <div className="input-group">
+            <label htmlFor="password">Password</label>
+            <input type="password" name="password" />
+          </div>
+          <button className="primary">Submit</button>
+        </form>
+        <button className="secondary" onClick={this.handleClick}>
+          Sign Up Here
+        </button>
+      </div>
+      </div>
+    );
+  }
 }
+
+export default Login;

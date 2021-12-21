@@ -2,9 +2,13 @@ import * as AWS from 'aws-sdk'
 
 const docClient = new AWS.DynamoDB.DocumentClient(
     {
-        region: 'us-east-1'
+        profile: 'randalowner',
+        region: 'us-east-1',
+        secretAccessKey: 'IAuyxaUv5fr+v35vhVUp7Q/hSfDTz6vEQaysWPxU',
+        accessKeyId: 'AKIAR7ZO2XE7BVB33GFW',
+        apiVersion: 'latest'
     })
-
+AWS.config.update(docClient);
 
 export const fetchData = (tableName) => {
     var params = {
@@ -32,14 +36,12 @@ export const putData = (tableName , data) => {
         }
     })
 }
-export const Organize = (userN, firstN, lastN, email, passwd) => {
+export const Organize = (userN, email, passwd) => {
 
     const userData = {
         userid: userN,
-        First: firstN, 
-        Last: lastN,
         Email: email,
-        PWD: passwd
+        Code: passwd
     }
     putData('ConferenceRoomUsers', userData);
 }
