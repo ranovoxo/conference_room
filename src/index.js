@@ -6,6 +6,7 @@ import * as AWS from 'aws-sdk';
 import { ConfigurationOptions } from 'aws-sdk';
 import { Auth0Provider } from '@auth0/auth0-react';
 
+
 const domain = process.env.REACT_APP_AUTH0_DOMAIN;
 const clientId = process.env.REACT_APP_CLIENTID;
 
